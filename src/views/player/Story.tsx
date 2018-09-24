@@ -8,7 +8,7 @@ import Team = GameStateIntegration.Team;
 import { type } from "os";
 
 export const props = (
-    primaryWeapon: string = "weapon_ak47",
+    primaryWeapon: string = "weapon_awp",
     secondaryWeapon: string = "weapon_hkp2000",
     isSpectatingByObserver: boolean = false,
 ): PlayerProps => {

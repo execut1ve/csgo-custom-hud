@@ -1,105 +1,126 @@
 @import "../theme/color.scss";
 .player {
   composes: base from "../theme/common.scss";
-  width: 465px;
-  height: 63px;
-  margin-bottom: 6px;
+  width: 610px;
+  height: 32px;
   display: flex;
   &[data-slot-side="left"] {
     flex-flow: row-reverse nowrap;
+      [class*=__sub-info__] {
+        flex-flow: row-reverse nowrap;
+    }
   }
   &[data-team="T"] {
-    [class*=__wrapper__] {
-      background: rgba(0, 0, 0, 0.65);
-    }
+    border-bottom: 2px solid #C18B32;
   }
   &[data-team="CT"] {
-    [class*=__wrapper__] {
-      background: rgba(0, 0, 0, 0.65);
-    }
-  }
-  &[data-is-spectating-by-observer=true] {
-    [class*=__wrapper__] {
-      background: rgba(200, 200, 200, 0.65);
-    }
+    border-bottom: 2px solid #4BA5D4;
   }
 }
 .wrapper {
-  width: 350px;
-}
-.main-info {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 36px;
-  font-size: 22px;
-  font-weight: bold;
-  &:after {
-    content:" ";
-    display:block;
-    clear:both;
-  }
+  background: #555;
 }
 
 .sub-info {
-  width: 100%;
-  height: 27px;
-  &:after {
-    content:" ";
-    display:block;
-    clear:both;
-  }
+  height: 32px;
+  display: flex;
+  align-items: center;
 }
 
-.health {
-  text-shadow: 0 0 10px black;
-  position: relative;
-  z-index: 1;
-  width: 40px;
+.armor {
+  width: 30px;
   height: 100%;
   text-align: center;
-  &[data-slot-side="left"] {
-    float: left;
-  }
-  &[data-slot-side="right"] {
-    float: right;
-  }
+}
+.armor-icon {
+  height: 75%;
+  width: auto;
+  margin: 2px auto auto 2px;
 }
 .name {
-  text-shadow: 0 0 10px black;
-  position: relative;
-  z-index: 1;
-  width: 170px;
-  overflow: hidden;
-  &[data-is-alive=false] {
-    color: rgba(255, 255, 255, 0.3);
-  }
+  width: 100px;
   &[data-slot-side="left"] {
     float: left;
-    margin-left: 15px;
+    margin-left: 5px;
     text-align: left;
   }
   &[data-slot-side="right"] {
     float: right;
-    margin-right: 15px;
+    margin-right: 5px;
     text-align: right;
   }
 }
-.primary-weapon {
-  position: relative;
-  z-index: 1;
-  width: 120px;
+
+.defuse-kit {
+  width: 30px;
   height: 100%;
   display: flex;
   align-items: center;
+  > img {
+    height: 24px;
+    width: auto;
+    filter: brightness(5%) invert(100%);
+  }
+}
+.c4 {
+  width: 30px;
+  height: 100%;
+  > img {
+    height: 75%;
+    width: auto;
+    margin: 2px auto auto 2px;
+    filter: brightness(5%) invert(100%);
+  }
+}
+
+.item-info {
+  width: 135px;
+  height: 100%;
+  &[data-slot-side="right"] {
+    float: left;
+    > img {
+      transform: scale(-1, 1);
+      float: left;
+      padding-right: 3px;
+      margin: 2px auto auto 2px;
+    }
+  }
   &[data-slot-side="left"] {
     float: right;
-    justify-content: flex-end;
+    > img {
+      float: right;
+      margin: 2px 2px auto auto;
+    }
+  }
+  > img {
+    transform: scale(-1, 1);
+    float: left;
+    padding-right: 5px;
+    width: auto;
+    height: 24px;
+    &[data-active=true] {
+      filter: invert(100%);
+    }
+    &[data-active=false] {
+      filter: invert(70%);
+    }
+  }
+}
+
+.primary-weapon {
+  width: 120px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  &[data-slot-side="left"] {
+    float: right;
+    text-align: right;
+    justify-content: flex-start;
   }
   &[data-slot-side="right"] {
     float: left;
     text-align: left;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 }
 .primary-weapon-icon {
@@ -119,8 +140,29 @@
     filter: drop-shadow(0.5px 0.5px 1px white) drop-shadow(-0.5px -0.5px 1px white) invert(70%);
   }
 }
-.secondary-weapon {
-  /*!*/
+
+.money {
+  color: #add28b;
+  text-shadow: 0 0 10px #000;
+  font-weight: bold;
+  width: 80px;
+  text-align: center;
+}
+
+
+.health {
+  text-shadow: 0 0 10px black;
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  &[data-slot-side="left"] {
+    float: left;
+  }
+  &[data-slot-side="right"] {
+    float: right;
+  }
 }
 .health-bar {
   position: absolute;
@@ -138,62 +180,6 @@
     background: linear-gradient(90deg, #445B6A, #0092C9);
   }
 }
-
-.armor {
-  width: 30px;
-  height: 100%;
-  text-align: center;
-  display: block;
-  &[data-slot-side="right"] {
-    float: right;
-  }
-  &[data-slot-side="left"] {
-    float: left;
-  }
-}
-
-.armor-icon {
-  height: 75%;
-  width: auto;
-  margin: 2px auto auto 2px;
-}
-
-.money {
-  color: #add28b;
-  text-shadow: 0 0 10px #000;
-  font-weight: bold;
-  height: 100%;
-  width: 60px;
-  &[data-slot-side="right"] {
-    float: right;
-  }
-  &[data-slot-side="left"] {
-    float: left;
-  }
-}
-
-.defuse-kit {
-  float: left;
-  width: 30px;
-  height: 100%;
-  > img {
-    height: 75%;
-    width: auto;
-    margin: 2px auto auto 2px;
-    filter: brightness(5%) invert(100%);
-  }
-}
-.c4 {
-  float: right;
-  width: 30px;
-  height: 100%;
-  > img {
-    height: 75%;
-    width: auto;
-    margin: 2px auto auto 2px;
-    filter: brightness(5%) invert(100%);
-  }
-}
 .kill-count {
   composes: base from "../theme/common.scss";
   text-shadow: 0 0 10px #000;
@@ -204,7 +190,6 @@
     float: left;
   }
 }
-
 .kill-icon {
   height: 60%;
   margin-top: 5px;
@@ -218,50 +203,7 @@
     float: left !important;
   }
 }
-.item-info {
-  width: 165px;
-  height: 100%;
-  &[data-slot-side="right"] {
-    float: left;
-    > img {
-      transform: scale(-1, 1);
-      float: left;
-      padding-right: 3px;
-      margin: 2px auto auto 2px;
-    }
-  }
-  &[data-slot-side="left"] {
-    float: right;
-    > img {
-      float: right;
-      padding-left: 3px;
-      margin: 2px 2px auto auto;
-    }
-  }
-  > img {
-    width: auto;
-    height: 75%;
-    &[data-active=true] {
-      filter: invert(100%);
-    }
-    &[data-active=false] {
-      filter: invert(70%);
-    }
-  }
-}
 
-.kda-wrapper {
-  flex: 1;
-  width: 115px;
-  &[data-show-kda=true] {
-    transition: all 1s;
-    opacity: 1;
-  }
-  &[data-show-kda=false] {
-    transition: all 1s;
-    opacity: 0;
-  }
-}
 
 .observer-slot {
   color: #fff;

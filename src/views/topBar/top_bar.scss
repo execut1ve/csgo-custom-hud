@@ -2,7 +2,7 @@
 .top-bar {
   composes: base from "../theme/common.scss";
   position: fixed;
-  top: 10px;
+  top: 560px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -10,11 +10,11 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .team-info {
-  background: rgba(0, 0, 0, 0.55);
+  background: #444;
   height: 70px;
   font-size: 24px;
   font-weight: 600;
@@ -31,6 +31,7 @@
   }
 }
 .team-score {
+  background: #333;
   font-size: 45px;
   width: 85px;
   height: 70px;
@@ -59,7 +60,7 @@
   }
 }
 .team-name {
-  width: 315px;
+  width: 445px;
   white-space: nowrap;
   overflow: hidden;
   margin-top: 0;
@@ -83,9 +84,9 @@
 }
 
 .round-info {
-  background: rgba(0, 0, 0, 0.65);
-  width: 150px;
-  height: 70px;
+  background: #0F0;
+  width: 680px;
+  height: 240px;
   display: flex;
   flex-flow: column nowrap;
   justify-content:center;

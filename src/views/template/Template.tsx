@@ -34,7 +34,7 @@ export class Template extends BaseComponent<TemplateProps, TemplateState> {
         return (
             <div>
                 <TopBar {...this.props.topBar} />
-                {this.props.winnerTeamAnnounce && <WinnerTeamAnnounce {...this.props.winnerTeamAnnounce} />}
+                {/*{this.props.winnerTeamAnnounce && <WinnerTeamAnnounce {...this.props.winnerTeamAnnounce} />}*/}
                 <TeamStats
                     players={this.props.players.filter(player => player.team === GameStateIntegration.Team.CT)}
                     team={GameStateIntegration.Team.CT}
@@ -47,7 +47,7 @@ export class Template extends BaseComponent<TemplateProps, TemplateState> {
                     teamMoney={this.props.teamMoney.t}
                     slotSide={this.props.slotSide.t}
                 />
-                <SpectatingPlayer {...this.props.spectatingPlayer} />
+                {/*<SpectatingPlayer {...this.props.spectatingPlayer} />*/}
             </div>
         );
     }

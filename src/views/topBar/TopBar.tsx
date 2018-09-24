@@ -111,9 +111,9 @@ export class TopBar extends BaseComponent<TopBarProps, {}> {
         })();
         return (
             <div className={classNames.roundInfo}>
-                {timer}
+                {/*{timer}
                 {roundCounter}
-                {defuseTimer}
+                {defuseTimer}*/}
             </div>
         );
     };

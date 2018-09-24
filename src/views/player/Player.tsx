@@ -214,6 +214,7 @@ export class Player extends BaseComponent<PlayerProps, {}> {
             <span
                 className={classNames.primaryWeapon}
                 data-team={this.props.team}
+                data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
             >
                 <img
                     className={classNames.primaryWeaponIcon}
@@ -270,7 +271,7 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                 data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
             >
                 {this.createSecondaryWeaponInfo()}
-                {this.createRoundKillCountInfo()}
+                {/*{this.createRoundKillCountInfo()}*/}
                 {this.createHighExplosiveAmountInfo()}
                 {this.createSmokeAmountInfo()}
                 {this.createFlashBangAmountInfo()}
@@ -322,8 +323,11 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                 data-slot-side={slotSide}
                 data-is-spectating-by-observer={this.props.isSpectatingByObserver}
             >
-                <div className={classNames.wrapper}>
-                    <div className={classNames.mainInfo}>
+                <div className={classNames.kdaWrapper} data-show-kda={this.props.showKda}>
+                    <Kda {...this.props.kda} className={classNames.kda} />
+                </div>
+                <div className={classNames.wrapper} data-team={this.props.team}>
+                    {/*  <div className={classNames.mainInfo}>
                         {this.createHealthBar()}
                         <span
                             className={classNames.health}
@@ -332,6 +336,21 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                         >
                             {this.props.health}
                         </span>
+                    </div>*/}
+                    <div className={classNames.subInfo}>
+                        {/*<span
+                        className={classNames.observerSlot}
+                        data-team={this.props.team}
+                        data-slot-side={slotSide}>
+                        {this.props.observerSlot}
+                      </span>*/}
+                        <span className={classNames.money} data-team={this.props.team}>
+                            ${this.props.money}
+                        </span>
+                        {this.createPrimaryWeaponInfo()}
+                        {this.createItemInfo()}
+                        {this.createC4Info()}
+                        {this.createDefuseKitInfo()}
                         <span
                             className={classNames.name}
                             data-team={this.props.team}
@@ -340,26 +359,8 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                         >
                             {this.props.name}
                         </span>
-                        {this.createPrimaryWeaponInfo()}
-                    </div>
-                    <div className={classNames.subInfo}>
-                        <span
-                            className={classNames.observerSlot}
-                            data-team={this.props.team}
-                            data-slot-side={slotSide}>
-                            {this.props.observerSlot}
-                        </span>
                         {this.createArmorInfo()}
-                        <span className={classNames.money} data-team={this.props.team} data-slot-side={slotSide}>
-                            ${this.props.money}
-                        </span>
-                        {this.createDefuseKitInfo()}
-                        {this.createC4Info()}
-                        {this.createItemInfo()}
                     </div>
-                </div>
-                <div className={classNames.kdaWrapper} data-show-kda={this.props.showKda}>
-                    <Kda {...this.props.kda} className={classNames.kda} />
                 </div>
             </div>
         );

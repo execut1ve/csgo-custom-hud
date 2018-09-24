@@ -1,8 +1,8 @@
 @import "../theme/color.scss";
 .team-stats {
   composes: base from "../theme/common.scss";
-  width: 465px;
-  height: 67 * 5px;
+  width: 610px;
+  height: 32 * 5px;
   position: fixed;
   display: flex;
   flex-wrap: wrap;
