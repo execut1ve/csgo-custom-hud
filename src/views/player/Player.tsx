@@ -214,6 +214,7 @@ export class Player extends BaseComponent<PlayerProps, {}> {
             <span
                 className={classNames.primaryWeapon}
                 data-team={this.props.team}
+                data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
             >
                 <img
                     className={classNames.primaryWeaponIcon}
