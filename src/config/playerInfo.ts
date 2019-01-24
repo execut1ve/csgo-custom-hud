@@ -27,4 +27,10 @@ export const playerInfoList: PlayerInfoList = {
         imageInline: false,
         name: "Shroud",
     },
+    "76561197983956651": {
+      twitterId: "Astralis",
+      image: "",
+      imageInline: false,
+      name: "Magisk",
+    },
 };
