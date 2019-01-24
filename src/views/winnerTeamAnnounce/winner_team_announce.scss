@@ -1,25 +1,25 @@
 // 2つの keyframe を @function に置き換えられそう
 @keyframes slideInDownForLeftSlot {
   from {
-    transform: translate(calc(-1 * 1110px / 2), -100%);
+    transform: translate(calc(-1 * 970px / 2), -100%);
     visibility: visible;
   }
   to {
-    transform: translate(calc(-1 * 1110px / 2), 0);
+    transform: translate(calc(-1 * 970px / 2), 0);
   }
 }
 @keyframes slideInDownForRightSlot {
   from {
-    transform: translate(calc(1110px / 2 - 480px), -100%);
+    transform: translate(calc(970px / 2 - 410px), -100%);
     visibility: visible;
   }
   to {
-    transform: translate(calc(1110px / 2 - 480px), 0);
+    transform: translate(calc(970px / 2 - 410px), 0);
   }
 }
 .winner-team-announce {
   composes: base from "../theme/common.scss";
-  width: 480px;
+  width: 410px;
   height: 45px;
   line-height: 45px;
   background: rgba(0, 0, 0, 0.55);
@@ -30,11 +30,11 @@
   top: 10 + 70px;
   left: 50%;
   &[data-slot-side="left"] {
-    transform: translate(calc(-1 * 1110px / 2), 0);
+    transform: translate(calc(-1 * 970px / 2), 0);
     animation: slideInDownForLeftSlot 0.5s;
   }
   &[data-slot-side="right"] {
-    transform: translate(calc(1110px / 2 - 480px), 0);
+    transform: translate(calc(970px / 2 - 410px), 0);
     animation: slideInDownForRightSlot 0.5s;
   }
 }
