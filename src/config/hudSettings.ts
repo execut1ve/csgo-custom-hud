@@ -6,5 +6,5 @@ export interface HudSettings {
 }
 
 export const hudSettings: HudSettings = {
-    showTeamMoney: true,
+    showTeamMoney: false,
 };

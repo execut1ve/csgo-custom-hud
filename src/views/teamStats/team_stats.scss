@@ -8,11 +8,11 @@
   flex-wrap: wrap;
   align-items: flex-end;
   &[data-slot-side="right"] {
-    bottom: 290px;
+    bottom: 355px;
     right: 10px;
   }
   &[data-slot-side="left"] {
-    bottom: 290px;
+    bottom: 355px;
     left: 10px;
   }
 }
