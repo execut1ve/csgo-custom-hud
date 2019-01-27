@@ -19,7 +19,7 @@ const createProps = (showTeamMoney: boolean): TemplateProps => ({
         ct: createTeamMoneyProps(GameStateIntegration.Team.CT, showTeamMoney),
         t: createTeamMoneyProps(GameStateIntegration.Team.T, showTeamMoney),
     },
-    spectatingPlayer: createSpectatingPlayerProps(GameStateIntegration.Team.CT, true),
+    spectatingPlayer: createSpectatingPlayerProps(GameStateIntegration.Team.CT, true, false),
     topBar: topBarProps(CurrentPhase.live, 91, 4),
     winnerTeamAnnounce: createWinnerTeamAnnounceProps(GameStateIntegration.Team.CT),
     slotSide: {

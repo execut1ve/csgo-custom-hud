@@ -7,7 +7,7 @@ export const props = (team: GameStateIntegration.Team, hasPlayerImage: boolean, 
     showSpectatingPlayer: true,
     name: "FooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFooFoo",
     twitterId: "@thiry_sk",
-    image: hasPlayerImage ? "shroud.jpg" : null,
+    image: hasPlayerImage ? "" : null,
     imageInline: inline,
     activeWeapon: {
         name: "weapon_ak47",
