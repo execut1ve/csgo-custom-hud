@@ -201,7 +201,7 @@ export class SpectatingPlayer extends BaseComponent<SpectatingPlayerProps, {}> {
                     }
                     <div className={classNames.playerNames}>
                         <p className={classNames.name} data-team={this.props.team}>{this.props.name}</p>
-                        {this.createPlayerInfo()}
+                        {/*{this.createPlayerInfo()}*/}
                     </div>
                     <div className={classNames.kda}>
                         <span className={classNames.kdaSeparator} data-team={this.props.team}>K</span>

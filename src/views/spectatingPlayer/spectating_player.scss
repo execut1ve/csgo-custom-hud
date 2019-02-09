@@ -43,10 +43,10 @@ $spectating-player-width: 720px;
 
 .name {
   composes: base from "../theme/common.scss";
-  height: 55px;
-  line-height: 50px;
+  height: 80px;
+  line-height: 80px;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 64px;
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
