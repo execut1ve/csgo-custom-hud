@@ -122,10 +122,10 @@ export class TopBar extends BaseComponent<TopBarProps, {}> {
         return (
             <div className={classNames.teamInfo} data-team={team} data-slot-side={slotSide}>
                 <p className={classNames.teamScore} data-team={team} data-slot-side={slotSide}>{teamInfo.score}</p>
-                {/*<div className={classNames.teamLogo} data-team={team} data-slot-side={slotSide}>
+                <div className={classNames.teamLogo} data-team={team} data-slot-side={slotSide}>
                     {teamInfo.logo &&
                         <img src={TeamLogoResolver.resolve(teamInfo.logo)} />}
-                </div>*/}
+                </div>
                 <p className={classNames.teamName} data-team={team} data-slot-side={slotSide}>{teamInfo.name}</p>
             </div>
         );
