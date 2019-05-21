@@ -93,12 +93,9 @@
   display: flex;
   align-items: center;
   &[data-slot-side="left"] {
-    float: right;
     justify-content: flex-end;
   }
   &[data-slot-side="right"] {
-    float: left;
-    text-align: left;
     justify-content: flex-start;
   }
 }
