@@ -94,9 +94,9 @@
 .primary-weapon {
   width: 120px;
   height: 36px;
-  align-items: center;
 
   display: flex;
+  align-items: center;
   position: relative;
   z-index: 1;
   &[data-slot-side="left"] {
@@ -119,39 +119,59 @@
     transform: scale(-1, 1);
   }
   &[data-active=true] {
-    filter: drop-shadow(0.5px 0.5px 1px white) drop-shadow(-0.5px -0.5px 1px white) invert(100%);
+    filter: drop-shadow(0.5px 0.5px 0.5px white) drop-shadow(-0.5px -0.5px 0.5px white) invert(100%);
   }
   &[data-active=false] {
-    filter: drop-shadow(0.5px 0.5px 1px white) drop-shadow(-0.5px -0.5px 1px white) invert(70%);
+    filter: drop-shadow(0.5px 0.5px 0.5px white) drop-shadow(-0.5px -0.5px 0.5px white) invert(70%);
   }
 }
 
 .sub-info {
-  width: 100%;
+  width: 350px;
   height: 27px;
-  &:after {
-    content:" ";
-    display:block;
-    clear:both;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.other-info {
+  height: 27px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  &[data-slot-side="right"] {
+    order: 2;
+  }
+  &[data-slot-side="left"] {
+    order: 1;
   }
 }
-.secondary-weapon {
-  /*!*/
+.observer-slot {
+  color: #fff;
+  font-size: 60%;
+  width: 6px;
+  &[data-slot-side="right"] {
+    order: 8;
+    margin-right: 3px;
+  }
+  &[data-slot-side="left"] {
+    order: 1;
+    margin-left: 3px;
+  }
 }
 
 .armor {
   width: 30px;
   height: 100%;
   text-align: center;
-  display: block;
+  // display: block;
   &[data-slot-side="right"] {
-    float: right;
+    order: 7;
   }
   &[data-slot-side="left"] {
-    float: left;
+    order: 2;
   }
 }
-
 .armor-icon {
   height: 75%;
   width: auto;
@@ -162,81 +182,132 @@
   color: #add28b;
   // text-shadow: 0 0 10px #000;
   font-weight: bold;
-  height: 100%;
   width: 60px;
   &[data-slot-side="right"] {
-    float: right;
+    order: 6;
   }
   &[data-slot-side="left"] {
-    float: left;
+    order: 3;
   }
 }
 
 .defuse-kit {
-  float: left;
   width: 30px;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   > img {
     height: 75%;
     width: auto;
-    margin: 2px auto auto 2px;
     filter: brightness(5%) invert(100%);
+  }
+  &[data-slot-side="right"] {
+    order: 5;
+  }
+  &[data-slot-side="left"] {
+    order: 4;
   }
 }
 .c4 {
-  float: right;
   width: 30px;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   > img {
     height: 75%;
     width: auto;
-    margin: 2px auto auto 2px;
     filter: brightness(5%) invert(100%);
+  }
+  &[data-slot-side="right"] {
+    order: 5;
+  }
+  &[data-slot-side="left"] {
+    order: 4;
   }
 }
 .kill-count {
   composes: base from "../theme/common.scss";
-  text-shadow: 0 0 10px #000;
+  // text-shadow: 0 0 10px #000;
   &[data-slot-side="right"] {
-    float: right;
+    order: 4;
+    margin-right: 10px;
   }
   &[data-slot-side="left"] {
-    float: left;
+    order: 6;
   }
 }
 
 .kill-icon {
   height: 60%;
-  margin-top: 5px;
   width: auto;
-  margin-left: 2px;
-  padding-right: 2px;
+  margin: 0 2px 0 2px;
   &[data-slot-side="right"] {
-    float: right !important;
+    order: 3;
   }
   &[data-slot-side="left"] {
-    float: left !important;
+    order: 5;
+    margin-left: 10px;
+  }
+}
+.weapon-info {
+  height: 27px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  &[data-slot-side="right"] {
+    order: 1;
+  }
+  &[data-slot-side="left"] {
+    order: 2;
   }
 }
 .item-info {
-  width: 165px;
+  width: 80px;
   height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   &[data-slot-side="right"] {
-    float: left;
+    order: 2;
     > img {
       transform: scale(-1, 1);
-      float: left;
-      padding-right: 3px;
-      margin: 2px auto auto 2px;
     }
   }
   &[data-slot-side="left"] {
-    float: right;
-    > img {
-      float: right;
-      padding-left: 3px;
-      margin: 2px 2px auto auto;
+    order: 7;
+  }
+  > img {
+    width: auto;
+    height: 75%;
+    margin: 0 2px 0 2px;
+    &[data-active=true] {
+      filter: invert(100%);
     }
+    &[data-active=false] {
+      filter: invert(70%);
+    }
+  }
+}
+.secondary-weapon {
+  // width: 165px;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  &[data-slot-side="right"] {
+    order: 1;
+    margin: 0 10px 0 5px;
+    > img {
+      transform: scale(-1, 1);
+    }
+  }
+  &[data-slot-side="left"] {
+    order: 8;
+    margin: 0 5px 0 10px;
   }
   > img {
     width: auto;
@@ -260,19 +331,5 @@
   &[data-show-kda=false] {
     transition: all 1s;
     opacity: 0;
-  }
-}
-
-.observer-slot {
-  color: #fff;
-  font-size: 40%;
-  width: 6px;
-  &[data-slot-side="right"] {
-    float: right !important;
-    margin: 5px 5px 0 0;
-  }
-  &[data-slot-side="left"] {
-    float: left !important;
-    margin: 5px 0 0 5px;
   }
 }

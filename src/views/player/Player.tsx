@@ -236,12 +236,16 @@ export class Player extends BaseComponent<PlayerProps, {}> {
             return null;
         }
         return (
+          <span
+              className={classNames.secondaryWeapon} data-team={this.props.team}
+              data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+          >
             <img
-                className={classNames.secondaryWeaponIcon}
                 src={src}
                 alt={this.props.weapon.secondary}
                 data-active={this.props.weapon.secondary === this.props.weapon.activeWeapon}
             />
+          </span>
         );
     };
     createRoundKillCountInfo = (): JSX.Element[] => {
@@ -270,8 +274,6 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                 className={classNames.itemInfo} data-team={this.props.team}
                 data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
             >
-                {this.createSecondaryWeaponInfo()}
-                {this.createRoundKillCountInfo()}
                 {this.createHighExplosiveAmountInfo()}
                 {this.createSmokeAmountInfo()}
                 {this.createFlashBangAmountInfo()}
@@ -286,7 +288,10 @@ export class Player extends BaseComponent<PlayerProps, {}> {
             return null;
         }
         return (
-            <span className={classNames.defuseKit}>
+            <span
+                className={classNames.defuseKit}
+                data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+            >
                 <img src={MiscIconResolver.resolve("defuseKit")} />
             </span>
         );
@@ -296,7 +301,10 @@ export class Player extends BaseComponent<PlayerProps, {}> {
             return null;
         }
         return (
-            <span className={classNames.c4}>
+            <span
+                className={classNames.c4}
+                data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+            >
                 <img src={MiscIconResolver.resolve("c4")} />
             </span>
         );
@@ -344,6 +352,10 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                         {this.createPrimaryWeaponInfo()}
                     </div>
                     <div className={classNames.subInfo}>
+                        <div
+                            className={classNames.otherInfo}
+                            data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+                        >
                         <span
                             className={classNames.observerSlot}
                             data-team={this.props.team}
@@ -356,7 +368,15 @@ export class Player extends BaseComponent<PlayerProps, {}> {
                         </span>
                         {this.createDefuseKitInfo()}
                         {this.createC4Info()}
+                        {this.createRoundKillCountInfo()}
+                        </div>
+                        <div
+                            className={classNames.weaponInfo}
+                            data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+                        >
                         {this.createItemInfo()}
+                        {this.createSecondaryWeaponInfo()}
+                        </div>
                     </div>
                 </div>
                 <div className={classNames.kdaWrapper} data-show-kda={this.props.showKda}>
