@@ -4,6 +4,7 @@
   width: 465px;
   height: 63px;
   margin-bottom: 6px;
+
   display: flex;
   &[data-slot-side="right"] {
     flex-flow: row-reverse nowrap;
@@ -26,76 +27,84 @@
 }
 .wrapper {
   width: 350px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: flex-end;
 }
 .main-info {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+  width: 350px;
   height: 36px;
+
   font-size: 22px;
   font-weight: bold;
-  &:after {
-    content:" ";
-    display:block;
-    clear:both;
-  }
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
-.sub-info {
-  width: 100%;
-  height: 27px;
-  &:after {
-    content:" ";
-    display:block;
-    clear:both;
+.health-bar {
+  width: 350px;
+  height: 36px;
+
+  position: absolute;
+  z-index: 0;
+  order: 0;
+  &[data-team="T"] {
+    background: linear-gradient(90deg, #7B5C2A, #DA8A31);
+  }
+  &[data-team="CT"] {
+    background: linear-gradient(90deg, #445B6A, #0092C9);
   }
 }
-
 .health {
+  width: 40px;
+  // height: 100%;
+  text-align: center;
   text-shadow: 0 0 10px black;
+
   position: relative;
   z-index: 1;
-  width: 40px;
-  height: 100%;
-  text-align: center;
   &[data-slot-side="left"] {
-    float: left;
+    order: 1;
   }
   &[data-slot-side="right"] {
-    float: right;
+    order: 3;
   }
 }
 .name {
+  width: 170px;
   text-shadow: 0 0 10px black;
+  overflow: hidden;
   position: relative;
   z-index: 1;
-  width: 170px;
-  overflow: hidden;
+  order: 2;
   &[data-is-alive=false] {
     color: rgba(255, 255, 255, 0.3);
   }
   &[data-slot-side="left"] {
-    float: left;
-    margin-left: 15px;
+    padding-left: 15px;
     text-align: left;
   }
   &[data-slot-side="right"] {
-    float: right;
-    margin-right: 15px;
+    padding-right: 15px;
     text-align: right;
   }
 }
 .primary-weapon {
+  width: 120px;
+  height: 36px;
+  align-items: center;
+
+  display: flex;
   position: relative;
   z-index: 1;
-  width: 120px;
-  height: 100%;
-  display: flex;
-  align-items: center;
   &[data-slot-side="left"] {
+    order: 3;
     justify-content: flex-end;
   }
   &[data-slot-side="right"] {
+    order: 1;
     justify-content: flex-start;
   }
 }
@@ -116,23 +125,18 @@
     filter: drop-shadow(0.5px 0.5px 1px white) drop-shadow(-0.5px -0.5px 1px white) invert(70%);
   }
 }
+
+.sub-info {
+  width: 100%;
+  height: 27px;
+  &:after {
+    content:" ";
+    display:block;
+    clear:both;
+  }
+}
 .secondary-weapon {
   /*!*/
-}
-.health-bar {
-  position: absolute;
-  z-index: 0;
-  width: 100%;
-  top: 0;
-  right :0;
-  bottom: 0;
-  left: 0;
-  &[data-team="T"] {
-    background: linear-gradient(90deg, #7B5C2A, #DA8A31);
-  }
-  &[data-team="CT"] {
-    background: linear-gradient(90deg, #445B6A, #0092C9);
-  }
 }
 
 .armor {
@@ -156,7 +160,7 @@
 
 .money {
   color: #add28b;
-  text-shadow: 0 0 10px #000;
+  // text-shadow: 0 0 10px #000;
   font-weight: bold;
   height: 100%;
   width: 60px;
