@@ -204,11 +204,21 @@ export class Player extends BaseComponent<PlayerProps, {}> {
     };
     createPrimaryWeaponInfo = (): JSX.Element => {
         if (!this.props.weapon.primary) {
-            return null;
+            return (
+              <span
+                  className={classNames.primaryWeapon}
+                  data-team={this.props.team}
+                  data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+              ></span>
+            );
         }
         const src = WeaponIconResolver.resolve(this.props.weapon.primary);
         if (!src) {
-            return null;
+            return (<span
+                className={classNames.primaryWeapon}
+                data-team={this.props.team}
+                data-slot-side={SlotSideResolver.resolve(this.props.observerSlot)}
+            ></span>);
         }
         return (
             <span
